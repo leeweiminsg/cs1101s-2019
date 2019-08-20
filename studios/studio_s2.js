@@ -1,3 +1,5 @@
+// NOTE: Do not have to check arguments, assume inputs are correct
+
 // Question 1
 /*
 4 options: 1, 2, 3, 4
@@ -24,8 +26,18 @@ biggie-sized combo: 5 to 8 inclusive
 use conditional expression
 */
 function is_biggie_size(combo) {
+  return combo >= 5;
+}
+
+/* previous submission
+
+combo <= 8 is redundant: see note at the top
+? true : false is redundant as well: && returns a boolean
+
+function is_biggie_size(combo) {
   return combo >= 5 && combo <= 8 ? true : false;
 }
+*/
 
 // Question 4
 /*
@@ -48,10 +60,18 @@ function empty_order() {
 }
 
 // Question 6
-// convert digits to strings, concat and convert back
+function add_to_order(order, combo) {
+  return order * 10 + combo;
+}
+
+/* previous submission
+
+convert digits to strings, concat and convert back
+
 function add_to_order(order, combo) {
   return parse_int(stringify(order) + stringify(combo), 10);
 }
+*/
 
 // Question 7
 function last_combo(order) {
