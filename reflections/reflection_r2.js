@@ -1,3 +1,7 @@
+/*
+Recursive function vs recursive/iterative processes: see pg 47 of SCIPjs
+*/
+
 /* 
 Source style guide: https://sicp.comp.nus.edu.sg/source/source_styleguide.pdf
 
@@ -5,18 +9,6 @@ A programming style is a set of rules for writing code. It helps other programme
 reducing the chances of introducing bugs.
 
 This reflection covers section 1.2.1 and 1.2.2 of SCIPjs
-*/
-
-/*
-TODO: Ask why the first function
-
-function f(x, y) {
-    return (x === 0) ? y : f(x - 1, y + 1);
-}
-
-is not recursive;
-
-Is this a feature of Source?
 */
 
 // Question 1
@@ -46,11 +38,13 @@ fact(5);
 TODO: Ask what does question mean by steps: substituter steps or substitution model
 
 Substituter shows 30 steps.
+
+Prof Henz: depends on how you count, doesn't matter
 */
 
 // Question 3
 /*
-4 deffered multiplication operations, so 4 function calls?
+4 deferred multiplication operations, so 4 function calls?
 */
 
 /*
@@ -59,7 +53,19 @@ TODO: Ask what does question mean by space
 
 // Question 4
 /*
-function is iterative if recursive call is its last operation
+process is iterative if recursive call is function's last operation
+
+Prof Henz: To transfrom from recursive to iterative, add a helper function and include state in helper
+
+function fact(n) {
+  return helper(n, 1);
+}
+
+function helper(n, product) {
+  return (n === 0)
+    ? product
+    : helper(n - 1, product * n);
+}
 */
 
 function fact(n) {
