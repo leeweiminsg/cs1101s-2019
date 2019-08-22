@@ -6,20 +6,20 @@ Recursive function vs recursive/iterative processes: see pg 47 of SCIPjs
 Source style guide: https://sicp.comp.nus.edu.sg/source/source_styleguide.pdf
 
 A programming style is a set of rules for writing code. It helps other programmers understand the code,
-reducing the chances of introducing bugs.
+reducing the chances of introducing bugs
 
 This reflection covers section 1.2.1 and 1.2.2 of SCIPjs
 */
 
 // Question 1
 /*
-Recursive function, due to deferred multiplication operation: n * fact(n - 1).
-See substituter in source academy.
+Recursive function, due to deferred multiplication operation: n * fact(n - 1)
+See substituter in source academy
 */
 
 // Question 2
 /*
-Use substitution model and applicative order reduction.
+Use substitution model and applicative order reduction
 See Fig 1.3 SCIPjs
 
 9 steps
@@ -35,9 +35,7 @@ fact(5);
 5 * 24;
 120;
 /*
-TODO: Ask what does question mean by steps: substituter steps or substitution model
-
-Substituter shows 30 steps.
+Substituter shows 30 steps
 
 Prof Henz: depends on how you count, doesn't matter
 */
