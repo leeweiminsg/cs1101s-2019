@@ -1,3 +1,7 @@
+/*
+For order of growth inequalities, you can divide by highest term and solve for k1, k2, and n0
+*/
+
 // Question 1
 /*
 k1 = 3
@@ -25,7 +29,7 @@ Claim is true
 /*
 a) n^2
 b) n
-c) 3^n
+c) 3^n * n^2 - Note it is the product
 */
 
 // Question 5
@@ -62,8 +66,8 @@ Calculates b to the power of e
 
 Recursive process - due to deferred multiplication operation
 
-Running time: Theta(n)
-Space consumption: Theta(n)
+Running time: Theta(e)
+Space consumption: Theta(e)
 */
 
 // Question 8
@@ -71,8 +75,8 @@ Space consumption: Theta(n)
 Calculates b to the power of e - a more optimised version of the power function
 If e is even, multiples b by itself
 
-Iterative if argument of e is even, else it is recursive (note first deferred operation
-before e becomes even in the next recursive call)
+Recursive operation
 
-Runtime: Theta(log2 e)
+NGUYEN: base of log doesn't matter since it can be converted to a different base
+Runtime: Theta(log e)
 */
