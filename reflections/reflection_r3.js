@@ -13,7 +13,7 @@ O(n) for both
 // Question 4
 // Refer to SCIPjs
 /*
-(x, y) => x + y
+x => x * (x + 1)
 1
 x => x + 1
 n
@@ -33,5 +33,5 @@ function sum(term, a, next, b) {
 a) x, f, g, y, h
 b) x: constant declaration, f, h: function declaration, g, y: paramter declaration
 c) 12
-d) x + 2
+d) 7
 */
