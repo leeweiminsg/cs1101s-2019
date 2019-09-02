@@ -33,23 +33,23 @@ function repeated(f, n) {
     : compose(f, repeated(f, n - 1));
 }
 
-Replace f with thrice:
+Use substitution model- replace f with thrice:
 thrice(thrice) -> compose(compose(thrice, thrice), thrice)
 
-((thrice(thrice))(f))(0) will call function f 9 times with input 0
+((thrice(thrice))(f))(0) will call function f 27 times with input 0
 
-n must be 9 for (repeated(f,n))(0) to return the same value
+n must be 27 for (repeated(f,n))(0) to return the same value
 */
 
 // Part A
 /*
 ((thrice(thrice))(add1))(6)
 
-15
+33
 
-the add1 function is composed 9 times
+the add1 function is composed 27 times
 argument is 6
-6 + 9 = 15
+6 + 27 = 33
 */
 
 // Part B
@@ -63,12 +63,12 @@ returns the compose function, since x => x returns the input
 /*
 ((thrice(thrice))(square))(1)
 
-1 squared 9 times is 1!
+1 squared 27 times is 1!
 */
 
 // Part D
 /*
 ((thrice(thrice))(square))(2)
 
-2^9 = 512
+2^2^27
 */
