@@ -59,16 +59,14 @@ List is 0-indexed, also called rank in the question
 */
 function every_second(items) {
     function every_second_helper(items, n) {
-        if (n === length(items)) {
+        if (n >= length(items)) {
             return null;
-        } else if (n % 2 === 0) {
-            return every_second_helper(items, n + 1);
         } else {
-            return pair(list_ref(items, n), every_second_helper(items, n + 1));
+            return pair(list_ref(items, n), every_second_helper(items, n + 2));
         }
     }
     
-    return every_second_helper(items, 0);
+    return every_second_helper(items, 1);
 }
 
 // Test
@@ -77,17 +75,15 @@ every_second(list("a", "x", "b", "y", "c", "z", "d"));
 
 // Question 5
 function sums(nums) {
-    function every_second_helper(nums, n, r) {
-        if (n === length(nums)) {
+  function every_second_helper(items, n) {
+        if (n >= length(items)) {
             return 0;
-        } else if (list_ref(nums, n) % 2 === r) {
-            return list_ref(nums, n) + every_second_helper(nums, n + 1, r);
         } else {
-            return every_second_helper(nums, n + 1, r);
+            return list_ref(items, n) + every_second_helper(items, n + 2);
         }
     }
     
-    return list(every_second_helper(nums, 0, 0), every_second_helper(nums, 0, 1));
+    return list(every_second_helper(nums, 0), every_second_helper(nums, 1));
 }
 
 sums(list(1, 2, 3, 4, 5));
