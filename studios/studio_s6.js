@@ -4,6 +4,7 @@ function map_(f, xs) {
 }
 
 // Question 2
+// Defined recursively for elements
 function remove_duplicates(xs) {
   return is_null(xs)
     ? null
@@ -11,6 +12,16 @@ function remove_duplicates(xs) {
         head(xs),
         remove_duplicates(filter(x => !equal(x, head(xs)), tail(xs)))
       );
+}
+
+// Question 3
+// Implement remove_duplicates using accumulate
+function remove_duplicates(xs) {
+  return accumulate(
+    (x, y) => pair(x, filter(item => !equal(item, x), y)),
+    null,
+    xs
+  );
 }
 
 // Question 4
@@ -52,3 +63,13 @@ const seqs = list(
 );
 
 accumulate_n((x, y) => x + y, 0, seqs);
+
+// Question 6
+// Implement accumulate for tree
+function accumulate_tree(op, init, seq) {
+  return accumulate(
+    (x, y) => (is_list(x) ? op(accumulate_tree(op, init, x), y) : op(x, y)),
+    init,
+    seq
+  );
+}
