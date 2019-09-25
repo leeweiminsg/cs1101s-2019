@@ -33,7 +33,7 @@ insertion_sort_cmp(xs, (x, y) => false);
   even(x) && !even(y)
     ? true
     : even(x) && even(y)
-    ? x > y
+    ? x < y
     : !even(x) && !even(y)
     ? x > y
     : false;
