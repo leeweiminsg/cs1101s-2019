@@ -24,6 +24,15 @@ function remove_duplicates(xs) {
   );
 }
 
+// Suggested solution
+function remove_duplicates() {
+  return accumulate(
+    (x, xs) => (is_null(member(x, xs)) ? pair(x, xs) : xs),
+    null,
+    xs
+  );
+}
+
 // Question 4
 function makeup_amount(x, coins) {
   if (x === 0) {
@@ -68,7 +77,7 @@ accumulate_n((x, y) => x + y, 0, seqs);
 // Implement accumulate for tree
 function accumulate_tree(op, init, seq) {
   return accumulate(
-    (x, y) => (is_list(x) ? op(accumulate_tree(op, init, x), y) : op(x, y)),
+    (x, xs) => (is_list(x) ? op(accumulate_tree(op, init, x), xs) : op(x, xs)),
     init,
     seq
   );
