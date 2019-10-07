@@ -22,17 +22,17 @@ function run(a) {
     ev3_stop(motorA);
     ev3_stop(motorB);
   } else if (ev3_reflectedLightIntensity(color) > 30) {
-    ev3_runForDistance(motorA, 30, 100);
-    ev3_runForDistance(motorB, 30, 100);
+    ev3_runForDistance(motorA, 30, 200);
+    ev3_runForDistance(motorB, 30, 200);
     run(a);
   } else {
-    ev3_pause((1000 * 220) / 100);
-    ev3_runForDistance(motorA, -80, 100);
-    ev3_runForDistance(motorB, -80, 100);
-
+    ev3_pause(1500);
+    ev3_runForDistance(motorA, -200, 200);
+    ev3_runForDistance(motorB, -200, 200);
+    ev3_pause(1500);
     ev3_runForDistance(motorA, -170, 100);
     ev3_runForDistance(motorB, 170, 100);
-    ev3_pause((1000 * 220) / 100);
+    ev3_pause(1500);
     run(a + 1);
   }
 }
@@ -44,15 +44,11 @@ const motorA = ev3_motorA();
 const motorB = ev3_motorB();
 const color = ev3_colorSensor();
 
-// Folllow right edge
 function run() {
   if (ev3_reflectedLightIntensity(color) > 20) {
     ev3_pause(500);
-    // Turn left
-    // 75
     ev3_runForDistance(motorB, 100, 300);
   } else {
-    // Turn right
     ev3_pause(500);
     ev3_runForDistance(motorA, 100, 300);
   }
