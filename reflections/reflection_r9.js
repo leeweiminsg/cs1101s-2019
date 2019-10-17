@@ -14,9 +14,15 @@ my_search(30); // returns false
 
 // Type your program in here!
 function make_optimized_search(A) {
-  let sorted_A = merge_sort(A);
+  let B = [];
 
-  return x => (!binary_search(A, x) ? false : true);
+  for (let i = 0; i < array_length(A); i = i + 1) {
+    B[i] = A[i];
+  }
+
+  let sorted_B = merge_sort(B);
+
+  return x => (!binary_search(sorted_B, x) ? false : true);
 }
 
 function binary_search(A, v) {
@@ -132,4 +138,5 @@ return result;
 }
 } */
 
-// Time and space complexity: O(nk)
+// Time complexity: Theta((n -k)(k))
+// Space complexity: Theta(nk)
