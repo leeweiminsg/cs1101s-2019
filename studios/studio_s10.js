@@ -19,10 +19,9 @@
 // Part B
 function bubblesort_list(L) {
   const len = length(L);
-  let curr = null;
 
   for (let i = len - 1; i >= 1; i = i - 1) {
-    curr = L;
+    let curr = L;
 
     for (let j = 0; j < i; j = j + 1) {
       if (head(curr) > head(tail(curr))) {
@@ -129,14 +128,18 @@ function next_generation(game, n) {
   return next;
 }
 
+// Time complexity: Theta(n^2)
+
 // Question 4
 const mem = [];
 
 function read(n, k) {
+  display(n, k);
   return mem[n] === undefined ? undefined : mem[n][k];
 }
 
 function write(n, k, value) {
+  display(n, k);
   if (mem[n] === undefined) {
     mem[n] = [];
   } else {
@@ -145,16 +148,16 @@ function write(n, k, value) {
 }
 
 function cc(amount, kinds_of_coins) {
-  if (read(amount, kinds_of_coins) !== undefined) {
+  if (amount === 0) {
+    return 1;
+  } else if (amount < 0 || kinds_of_coins === 0) {
+    return 0;
+  } else if (read(amount, kinds_of_coins) !== undefined) {
     return read(amount, kinds_of_coins);
   } else {
     const result =
-      amount === 0
-        ? 1
-        : amount < 0 || kinds_of_coins === 0
-        ? 0
-        : cc(amount, kinds_of_coins - 1) +
-          cc(amount - first_denomination(kinds_of_coins), kinds_of_coins);
+      cc(amount, kinds_of_coins - 1) +
+      cc(amount - first_denomination(kinds_of_coins), kinds_of_coins);
 
     write(amount, kinds_of_coins, result);
 
@@ -176,4 +179,6 @@ function first_denomination(kinds_of_coins) {
     : 0;
 }
 
-// Time and space complexity: Theta(amount)
+// Time and space complexity: Theta(amount * kind_of_coins)
+
+// Question 5
