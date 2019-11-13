@@ -38,3 +38,9 @@ function extend(bno) {
     );
   }
 }
+
+// Tests
+const integers = pair(1, () => stream_map(x => x + 1, integers));
+const mult_streams = extend((x, y) => x * y);
+const my_stream = mult_streams(integers, integers);
+// my_stream now has elements 1 4 9 16...
