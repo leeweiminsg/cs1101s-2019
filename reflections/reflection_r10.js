@@ -1,6 +1,7 @@
 // Question 1
-// 0, 1, 2, 3;
-// 0, 1, 2, 3, 4, 5;
+// 0
+// 1, 2, 3;
+// 1, 2, 3, 4, 5;
 
 // Question 2
 function list_to_inf_streamxs(xs) {
@@ -10,10 +11,14 @@ function list_to_inf_streamxs(xs) {
     } else {
       return pair(head(ys), () => helper(tail(ys)));
     }
-
-    return is_null(xs) ? null : helper(xs);
   }
+
+  return is_null(xs) ? null : helper(xs);
 }
+
+// Tests
+let xss = list_to_inf_streamxs(list(1, 2, 3, 4, 5));
+eval_stream(xss, 20);
 
 // Question 3
 function partial_sum(s) {

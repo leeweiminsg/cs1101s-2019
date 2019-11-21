@@ -36,7 +36,25 @@ stream_pairs(ints);
     [1, 3],
     [
       [1, 4],
-      [[1, 5], [[2, 3], [[2, 4], [[2, 5], [[3, 4], [[3, 5], [[4, 5], null]]]]]]]
+      [
+        [1, 5],
+        [
+          [2, 3],
+          [
+            [2, 4],
+            [
+              [2, 5],
+              [
+                [3, 4],
+                [
+                  [3, 5],
+                  [[4, 5], null]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
     ]
   ]
 ];
@@ -100,7 +118,20 @@ return fun_to_series(x => 1);
 return fun_to_series(x => x + 1);
 
 // Question 4
+function add_streams_pickle(s1, s2) {
+  return is_null(s1)
+    ? s2()
+    : is_null(s2())
+    ? s1
+    : pair(head(s1) + head(s2()), () =>
+        add_streams_pickle(stream_tail(s1), () => stream_tail(s2()))
+      );
+}
+
 function mul_series(s1, s2) {
   return pair(head(s1) * head(s2), () =>
-    add_series(scale_stream(head(s2), stream_tail(s1)), mul_series(s1, stream_tail(s2))));
+    add_series_pickle(stream_tail(scale_stream(head(s2), s1)), () =>
+      mul_series(stream_tail(s2), s1)
+    )
+  );
 }
